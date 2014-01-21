@@ -1,14 +1,15 @@
 require 'mycroft'
 
-class Lab-volume < Mycroft::Client
+class LabVolume < Mycroft::Client
 
   attr_accessor :verified
 
-  def initialize
+  def initialize(host, port)
     @key = '/path/to/key'
     @cert = '/path/to/cert'
     @manifest = './app.json'
     @verified = false
+    super
   end
 
   def connect
@@ -24,4 +25,4 @@ class Lab-volume < Mycroft::Client
   end
 end
 
-Mycroft.start(Lab-volume)
+Mycroft.start(LabVolume)
